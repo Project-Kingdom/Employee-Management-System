@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://use.fontawesome.com/a6ebce2573.js"></script>
+
+  <!--Bootstrap Scripts-->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>  
+    
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <style>
+    .btn {
+    border: none;
+    color: white;
+    opacity: 1;
+    transition: 0.3s;
+  }
+  
+  .btn:hover {
+    opacity: 0.5;
+    ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1); /* Safari 3-8 */
+    transform: scale(1.2);
+  }
+  </style>
+</head>
+  <body>
+        <div class="container">
+                <div class="row">
+                        
+                            <div class="container">
+                              <div class="row">
+                                
+                                  <h1>Filter Employee Records</h1>
+                           <div class="col-md-12">
+                              <form action="/search123/" id="EmployeeForm" class="form-horizontal" method="post"  role="form">
+                                          
+                             <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="name" class="col-md-12 control-label">By Name</label>
+                                    <div class="col-md-12">
+                                        <input type="text" id="searchName" class="form-control" name="fltrname" placeholder="Enter Name">
+                                    </div>
+                                </div>
+                             </div>
+                             <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="email" class="col-md-12 control-label">&nbsp;</label>
+                                   
+                                     <div class="col-md-12">
+                                        <input type="submit" class="form-control btn btn-primary" name="submit" placeholder="Filter">
+                                    </div>
+                                </div>
+                             </div>
+                      </form>
+                           </div>
+                                </div>
+                              </div>
+                    <div id="uploadfile" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <div class="panel-title">Upload File</div>
+                                 </div>  
+                            <div class="panel-body" >
+                                <form action="/upload" id="EmployeeForm" class="form-horizontal" method="post"  role="form" enctype="multipart/form-data">
+                                   
+                                  <div class="form-group">
+                                    <label for="name" class="col-md-3 control-label">Name</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" name="name" required>
+                                    </div>
+                                </div>      
+
+                                    <div class="form-group">
+                                        <label for="file" class="col-md-3 control-label">Upload File</label>
+                                        <div class="col-md-9">
+                                            <input type="file" class="form-control" name="file" required>
+                                        </div>
+                                    </div>
+                                    
+            
+                                    <div class="form-group">
+                                        <!-- Button -->                                        
+                                        <div class="col-md-offset-3 col-md-9">
+                                        <input type="submit" name="submit" value="Upload" class="btn btn-primary">   
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                </form>
+                             </div>
+                        </div>
+            
+                   
+                   
+                    
+             </div> 
+                </div>
+              </div>
+               
+              
+               <div class="wrapper">
+                <div class="news">
+                    <% if(records != null) { %>
+                    <% records.forEach(function(article, index) { %>
+                        <a href="/" class="news__card">
+                            <img class="size" src=".././uploads/<%- article.imagename %>">
+                        </a>
+                    <% }) %>
+                    <% } else { %>
+                        <p>No posts found.</p>
+                    <% } %>
+                </div>
+            </div>   
+                           
+                 
+              
+            
+                    <script>
+                      $(function(){
+                    $('#searchName').autocomplete({
+                    source: function(req,res){
+                
+                      $.ajax({
+                        url:"autocomplete123/",
+                        dataType:"jsonp",
+                        type:"GET",
+                        data:req,
+                        success: function(data){
+                          res(data)
+                
+                        },
+                        error: function(err){
+                          console.log(err.status);
+                        }
+                      });
+                    },
+                
+                    minLength:1,
+                    select: function(event,ui){
+                      if(ui.item){
+                        $('#searchName').val(ui.item.label);
+                      }
+                    }
+                
+                    });
+                
+                      });
+                      </script>
+              </body>
+            </html>
+            
